@@ -9,9 +9,8 @@ Description: More about what it does (maybe more than one line)
 License: What license is it under?
 Imports: purrr,
          ggplot2,
-         sf,
          ggspatial,
-         maps
+         maps,
          maptools,
          rgeos,
          purrr,
