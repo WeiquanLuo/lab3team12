@@ -2,19 +2,18 @@ Package: lab3team12
 Type: Package
 Title: What the Package Does (Title Case)
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
+Author: lab3team12 from STAT 585 Spring 2019
+Maintainer: The package maintainer <weiquanl@iastate.edu>
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+License: CC-0
 Imports: purrr,
-         ggplot2,
-         ggspatial,
          maps,
          maptools,
          rgeos,
          purrr,
-         tidyverse
+         tidyverse,
+         sf
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1

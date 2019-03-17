@@ -1,15 +1,21 @@
 #'@name team_11
 #'@title team_11's function for 2-level list extraction
 #'@author Lab 2 team 11 from STAT 585 Spring 2019
-#'@import ggplot2, sf, ggspatial, maps, maptools, rgeos, purrr, tidyverse
-#'@seealso purr::flatten
+#'@seealso purrr::map_depth, purrr::map_dfr
 #'@return a small shape file
-#'@description This function extracts data from a shapefile with 2 levels in spf$geometry
-#' @export
-#' @importFrom purrr flatten
+#'@description This function extracts data from a shapefile with 2 levels in file$geometry
+#'@export
+#'@importFrom sf, maptools, purrr, tidyverse
 
-team_11 <- function(spf) {
-  map_depth(.x = spf$geometry, 2, .f = c(1)) %>% flatten %>%
+team_11 <- function(file, tolerance = 0.1) {
+
+  shpbig <- read_sf(file)
+  shp_st <- thinnedSpatialPoly(
+    as(shpbig, "Spatial"), tolerance = tolerance,
+    minarea = 0.001, topologyPreserve = TRUE)
+  shp <- st_as_sf(shp_st)
+
+  map_depth(.x = shp$geometry, 2, .f = c(1)) %>% flatten %>%
     map_dfr(data.frame, .id = "group") -> df
   colnames(df) <- c("group", "long", "lat")
   df$order <- seq(from = 1, to = nrow(df), by = 1)

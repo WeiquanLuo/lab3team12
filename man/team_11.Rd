@@ -4,16 +4,16 @@
 \alias{team_11}
 \title{team_11's function for 2-level list extraction}
 \usage{
-team_11(spf)
+team_11(file, tolerance = 0.1)
 }
 \value{
 a small shape file
 }
 \description{
-This function extracts data from a shapefile with 2 levels in spf$geometry
+This function extracts data from a shapefile with 2 levels in file$geometry
 }
 \seealso{
-purr::flatten
+purrr::map_depth, purrr::map_dfr
 }
 \author{
 Lab 2 team 11 from STAT 585 Spring 2019
