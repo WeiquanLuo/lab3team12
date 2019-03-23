@@ -1,7 +1,7 @@
 #' Team 5
 #'
 #' Converts the geometry section of a shape file to latitude-longitude format
-#' @export
+#' @export team_5
 #' @param file Shape file path, extension .shp. Must contain a geometry column.
 #' @param tolerance Tolerance level for thinning shape file. A percentage between 0 and 1.
 #' @return The structure of the original file with the geometry column converted to long-lat format.

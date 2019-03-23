@@ -1,0 +1,80 @@
+### 02_lab-recap.html
+## slide 3
+# can set working directory to Rproject using "More" button inside files viewer on bottom right corner
+
+## slide 4
+# NEVER use global file paths!!
+# note the difference in syntax between absolute and relative paths: absolute starts with /
+# .. means one level up
+
+## slide 5: your turn
+tfile <- read.csv("/home/kmc/Documents/Stat585/iris.csv")
+# first answer question of "where am I" with getwd()
+# then where is file relative to where you are
+t2 <- read.csv("./Documents/Stat585/iris.csv")
+# use tab to complete file names because suggests relative path and correct spelling
+# capitalization of file names matters!
+
+## slide 9
+# assumes that where ever that rmarkdown file lives is the working directory
+
+## slide 14
+# the thinning went a little over-board and introduced white spots that look like lakes along the borders
+# reduce the tolerance to fix this issue
+# most likely to happen for smaller countries...
+
+## slide 18
+# drop browser() into function to see what function is operating on
+ozplus <- oz %>% mutate(
+  data = geometry %>% purrr::map(.f = function(list) {
+    brower()
+    inner = list %>% purrr::map(.f = function(xx){
+      brower()
+      extract(xx)})
+    data.frame(subgroup = 1:length(inner), inner = I(inner))
+  })
+  
+  # flatten() is the same thing on a list as unnest() is on a dataframe
+  
+  ## slide 22
+  # layers returns a list of shape files
+  
+  ## slide 24
+  # look up modify_depth()
+)
+
+### 08_testing-code/00_debugging.html
+## slide 10
+# keep track of all the functions you have debug() turned on for
+
+## slide 16
+larger <- function(x, y) { 
+  y.is.bigger <- y > x 
+  x[y.is.bigger] <- y[y.is.bigger]
+  browser()
+  x
+} 
+larger(c(1, 5, 10), c(2, 4, 11))
+larger(c(1, 5, 10), 6)
+
+larger_km <- function(x, y){
+  y.is.bigger <- y > x
+  n <- length(x)
+  y2<- rep_len(y, length.out = n)
+  x[y.is.bigger] <- y2[y.is.bigger]
+  x
+}
+
+larger_km(c(1, 5, 10), 6)
+larger_km(6, c(1, 5, 10))
+
+larger_km2 <- function(x, y){
+  y.is.bigger <- y > x
+  if (length(x) < length(y)){
+    
+  }
+  n <- length(x)
+  y2<- rep_len(y, length.out = n)
+  x[y.is.bigger] <- y2[y.is.bigger]
+  x
+}

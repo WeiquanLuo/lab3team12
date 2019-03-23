@@ -5,9 +5,7 @@
 #'@return a small shape file
 #'@description This function extracts data from a shapefile with 2 levels in file$geometry
 #'@export
-#'@importFrom sf read_sf st_as_sf
-#'@importFrom maptools thinnedSpatialPoly
-#'@importFrom purrr map_depth flatten map_dfr
+#'@importFrom sf, maptools, purrr, tidyverse
 
 team_11 <- function(file, tolerance = 0.1) {
 
