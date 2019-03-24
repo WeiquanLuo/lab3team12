@@ -1,8 +1,21 @@
+#' Converts the geometry section of a shape file to latitude-longitude format
+#' @name team_10
+#' @author Stat585 Spring2019
+#' @export
+#' @param file path of a geometry file, extension should be .shp.
+#' @param tolerance Tolerance level for thinning shape file. A percentage between 0 and 1.
+#' @return a data frame object
+#'
+#' @import tidyverse
+#' @import dplyr
+#' @import purrr
+#' @import sf
+#' @example
+#' dsn="data/gadm36_AUS_shp/gadm36_AUS_1.shp"
+#' tmp=team_10(dsn,0.1)
+
+
 team_10=function(file, tolerance=0.1){
-  library(tidyverse)
-  library(purrr)
-  library(sf)
-  library(dplyr)
   shpbig <- read_sf(file)
   shp_st <- maptools::thinnedSpatialPoly(
     as(shpbig, "Spatial"), tolerance = tolerance,
@@ -23,22 +36,4 @@ team_10=function(file, tolerance=0.1){
 
 }
 
-#library(tidyverse)
-#library(purrr)
-#library(sf)
-#library(dplyr)
-#ozbig <- read_sf("./data/gadm36_AUS_shp/gadm36_AUS_1.shp")
-#oz_st <- maptools::thinnedSpatialPoly(as(ozbig, "Spatial"), tolerance = 0.1, minarea = 0.001, topologyPreserve = TRUE)
-#oz <- st_as_sf(oz_st)
 
-
-#dsn <- "data/gadm36_AUS_shp/gadm36_AUS_1.shp"
-
-#test=team_10(dsn,0.1)
-#test %>% ggplot(aes(x = long, y = lat, group = group)) +
-#  geom_polygon(color = "black")
-
-#shpSmall <- shpBigToSmall(dsn)
-#plotMap <- shpSmall %>% ggplot(aes(x = long, y = lat, group = group)) +
-#  geom_polygon(color = "black")
-#plotMap
