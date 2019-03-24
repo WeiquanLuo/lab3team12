@@ -11,8 +11,8 @@
 #' @import purrr
 #' @import sf
 #' @example
-#' dsn="data/gadm36_AUS_shp/gadm36_AUS_1.shp"
-#' tmp=team_10(dsn,0.1)
+#' gdat="data/gadm36_AUS_shp/gadm36_AUS_1.shp"
+#' tmp=team_10(gdat,0.1)
 
 
 team_10=function(file, tolerance=0.1){
