@@ -15,7 +15,6 @@ newgeo <- function(multpoly){
   lst <- purrr::flatten(multpoly) %>% purrr::map(.f = Mat2Df) %>%
     dplyr::bind_rows(.id = "subgroup")
   newdf <- lst %>% dplyr::select(-subgroup, -order, dplyr::everything())
-  newdf$subgroup <- as.factor(newdf$subgroup)
   return(newdf)
 }
 
@@ -34,6 +33,7 @@ newgeo <- function(multpoly){
 #' @import purrr
 #' @importFrom maptools thinnedSpatialPoly
 #' @importFrom sf read_sf st_as_sf
+#' @importFrom tibble rownames_to_column
 
 team_5 <- function(file, tolerance = 0.05){
   assertthat::assert_that(assertthat::has_extension(file, "shp"))
@@ -49,12 +49,13 @@ team_5 <- function(file, tolerance = 0.05){
                                     purrr::map(.f = function(x){newgeo(x)}))
 
   # converting to data frame with geographic information
-  geom_data <- new_df$data %>% dplyr::bind_rows(.id = "group") %>%
-    dplyr::select(-group, -subgroup, -order, dplyr::everything())
-  geom_data$group <- as.factor(geom_data$group)
-  rest <- dplyr::select(as.data.frame(new_df), -which(names(new_df) == "geometry"))
-  rest <- dplyr::add_rownames(rest, var = "group")
-  rest$group <- as.factor(rest$group)
-  df.final <- dplyr::right_join(geom_data, rest, by = "group")
+  geom_data <- new_df$data %>% dplyr::bind_rows(.id = "region.group") %>%
+    dplyr::select(-region.group, -subgroup, -order, dplyr::everything())
+  geom_data$region.group <- as.factor(geom_data$region.group)
+  geom_data$group <- paste(geom_data$region.group, geom_data$subgroup, sep=".")
+  rest <- dplyr::select(as.data.frame(sf_thin), -which(names(sf_thin) == "geometry"))
+  rest <- tibble::rownames_to_column(rest, var = "region.group")
+  rest$region.group <- as.factor(rest$region.group)
+  df.final <- dplyr::right_join(geom_data, rest, by = "region.group")
   return(df.final)
 }
