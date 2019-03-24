@@ -17,6 +17,10 @@ a data frame object
 \description{
 Converts the geometry section of a shape file to latitude-longitude format
 }
+\examples{
+gdat="data/gadm36_AUS_shp/gadm36_AUS_1.shp"
+tmp=team_10(gdat,0.1)
+}
 \author{
 Stat585 Spring2019
 }

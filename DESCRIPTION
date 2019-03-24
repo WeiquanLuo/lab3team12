@@ -14,6 +14,7 @@ Imports:
     rgeos,
     purrr,
     tidyverse,
+    tidyr,
     sf,
     magrittr
 Encoding: UTF-8

@@ -45,7 +45,7 @@ team_5 <- function(file, tolerance = 0.05){
 
   # returns a list of data frames with the geometry information
   assertthat::assert_that(assertthat::has_name(sf_thin, "geometry"))
-  new_sf <- sf_thin %>% dplyr::transmute(data = geometry %>%
+  new_df <- sf_thin %>% dplyr::transmute(data = geometry %>%
                                     purrr::map(.f = function(x){newgeo(x)}))
 
   # converting to data frame with geographic information
