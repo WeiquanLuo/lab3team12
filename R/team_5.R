@@ -49,7 +49,7 @@ team_5 <- function(file, tolerance = 0.05){
                                     purrr::map(.f = function(x){newgeo(x)}))
 
   # converting to data frame with geographic information
-  geom_data <- new_sf$data %>% dplyr::bind_rows(.id = "group") %>%
+  geom_data <- new_df$data %>% dplyr::bind_rows(.id = "group") %>%
     dplyr::select(-group, -subgroup, -order, dplyr::everything())
   geom_data$group <- as.factor(geom_data$group)
   rest <- dplyr::select(as.data.frame(new_df), -which(names(new_df) == "geometry"))
