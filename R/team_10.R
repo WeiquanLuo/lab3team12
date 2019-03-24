@@ -9,7 +9,7 @@
 #' @import tidyverse
 #' @import dplyr
 #' @import purrr
-#' @importFrom sf read_sf st_as_sf
+#' @importFrom sf read_sf st_as_sf st_geometry
 #' @importFrom tidyr unnest
 #' @examples
 #' gdat="data/gadm36_AUS_shp/gadm36_AUS_1.shp"
@@ -17,16 +17,16 @@
 
 
 team_10=function(file, tolerance=0.1){
-  shpbig <- read_sf(file)
+  shpbig <- sf::read_sf(file)
   shp_st <- maptools::thinnedSpatialPoly(
     as(shpbig, "Spatial"), tolerance = tolerance,
     minarea = 0.001, topologyPreserve = TRUE)
-  shp <- st_as_sf(shp_st)
+  shp <- sf::st_as_sf(shp_st)
   shpSmall <- shp %>% select(NAME_1, geometry) %>%
     group_by() %>%
     mutate(coord = geometry %>% map(.f = function(m) flatten(.x=m)),
            region = row_number()) %>% unnest()
-  st_geometry(shpSmall) <- NULL
+  sf::st_geometry(shpSmall) <- NULL
   shpSmall <- shpSmall %>%
     mutate(coord = coord %>% map(.f = function(m) as_tibble(m)),
            group = row_number()) %>% unnest %>%
