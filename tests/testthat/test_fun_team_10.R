@@ -21,12 +21,14 @@ test_that("Successfully detect the input type", {
 
 # cant open the file, I cant figure it out.
 #test_that("correct output type", {
-#  right_file="tests/testdata/gadm36_AUS_1.shp"
+#  right_file=".R/gadm36_AUS_1.shp"
 #
 #  #test for class of the output
-#  expect_equal(class(team_10(right_file)), "data.frame")
+#  expect_equal(class(team_10(right_file))[3], "data.frame")
 #
 #  #test for expected variables
-#  expect_equal(names(team_10(right_file)), c("listno", names(puerto_rico)[1:2],
-#                                             "group", "order", "long", "lat"))
+#  expect_equal(names(team_10(right_file)), c("name", "region", "group", "long", "lat"))
 #})
+
+
+
