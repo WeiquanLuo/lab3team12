@@ -1,6 +1,6 @@
 #' Converts the geometry section of a shape file to latitude-longitude format
 #' @name team_10
-#' @author Hao
+#' @author algorithm by STAT585 Lab2 team10, package function by Hao
 #' @export
 #'
 #' @param file File path of a geometry file, extension should be .shp.

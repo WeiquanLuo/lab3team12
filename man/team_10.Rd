@@ -37,5 +37,5 @@ tmp \%>\% ggplot(aes(x=long,y=lat,group=group))+geom_polygon()
 
 }
 \author{
-Hao
+algorithm by STAT585 Lab2 team10, package function by Hao
 }
