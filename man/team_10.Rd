@@ -7,20 +7,35 @@
 team_10(file, tolerance = 0.1)
 }
 \arguments{
-\item{file}{path of a geometry file, extension should be .shp.}
+\item{file}{File path of a geometry file, extension should be .shp.}
 
 \item{tolerance}{Tolerance level for thinning shape file. A percentage between 0 and 1.}
 }
 \value{
-a data frame object
+A data frame object
 }
 \description{
 Converts the geometry section of a shape file to latitude-longitude format
 }
+\details{
+The variables included in the dataframe that is returned from \code{team_10}
+are as follows.
+\itemize{
+\item name = subregion name depicted by the data
+\item region = coded subregion
+\item group = indicates which polygon a set of points corresponds to
+\item long = longitude of the point
+\item lat = latitude of the point
+}
+}
 \examples{
 gdat="data/gadm36_AUS_shp/gadm36_AUS_1.shp"
 tmp=team_10(gdat,0.1)
+library(ggplot2)
+library(dplyr)
+tmp \%>\% ggplot(aes(x=long,y=lat,group=group))+geom_polygon()
+
 }
 \author{
-Stat585 Spring2019
+Hao
 }
