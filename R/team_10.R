@@ -23,8 +23,9 @@
 #' @import purrr
 #' @importFrom sf read_sf st_as_sf st_geometry
 #' @importFrom tidyr unnest
+#' @importFrom checkmate expect_numeric expect_string
 #' @examples
-#' gdat="data/gadm36_AUS_shp/gadm36_AUS_1.shp"
+#' gdat_path="data/gadm36_AUS_shp/gadm36_AUS_1.shp"
 #' tmp=team_10(gdat,0.1)
 #' library(ggplot2)
 #' library(dplyr)
@@ -33,6 +34,11 @@
 
 
 team_10=function(file, tolerance=0.1){
+  # Check that the tolerance is a single numeric value
+  checkmate::expect_numeric(tolerance)
+  # Check that the file is a .shp file
+  checkmate::expect_string(file, pattern = ".shp$", info = "A file path must lead to a .shp file.")
+
   shpbig <- sf::read_sf(file)
   shp_st <- maptools::thinnedSpatialPoly(
     as(shpbig, "Spatial"), tolerance = tolerance,

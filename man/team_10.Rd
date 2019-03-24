@@ -29,7 +29,7 @@ are as follows.
 }
 }
 \examples{
-gdat="data/gadm36_AUS_shp/gadm36_AUS_1.shp"
+gdat_path="data/gadm36_AUS_shp/gadm36_AUS_1.shp"
 tmp=team_10(gdat,0.1)
 library(ggplot2)
 library(dplyr)
