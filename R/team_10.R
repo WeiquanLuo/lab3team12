@@ -9,7 +9,7 @@
 #' @import tidyverse
 #' @import dplyr
 #' @import purrr
-#' @import sf
+#' @importFrom sf read_sf st_as_sf
 #' @importFrom tidyr unnest
 #' @examples
 #' gdat="data/gadm36_AUS_shp/gadm36_AUS_1.shp"
