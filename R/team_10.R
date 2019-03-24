@@ -24,13 +24,11 @@ team_10=function(file, tolerance=0.1){
   shpSmall <- shp %>% select(NAME_1, geometry) %>%
     group_by() %>%
     mutate(coord = geometry %>% map(.f = function(m) flatten(.x=m)),
-           region = row_number()) %>%
-    unnest
+           region = row_number()) %>% tidyr::unnest()
   st_geometry(shpSmall) <- NULL
   shpSmall <- shpSmall %>%
     mutate(coord = coord %>% map(.f = function(m) as_tibble(m)),
-           group = row_number()) %>%
-    unnest %>%
+           group = row_number()) %>% tidyr::unnest %>%
     setNames(c("name", "region","group", "long", "lat"))
   return(shpSmall)
 
