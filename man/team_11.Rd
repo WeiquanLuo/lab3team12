@@ -4,7 +4,7 @@
 \alias{team_11}
 \title{team_11's function for 2-level list extraction}
 \usage{
-team_11(file, tolerance = 0.1)
+team_11(tile, tolerance)
 }
 \arguments{
 \item{file}{path of a geometry file, extension should be .shp.}
@@ -25,7 +25,7 @@ dsn="data/gadm36_AUS_shp/gadm36_AUS_1.shp"
 tmp=team_11(file = dsn)
 }
 \seealso{
-purrr::map_depth, purrr::map_dfr
+team_11, team_5
 }
 \author{
 Lab 2 team 11 from STAT 585 Spring 2019
