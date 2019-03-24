@@ -6,11 +6,23 @@
 \usage{
 team_11(file, tolerance = 0.1)
 }
+\arguments{
+\item{file}{path of a geometry file, extension should be .shp.}
+
+\item{tolerance}{Tolerance level for thinning shape file. A percentage between 0 and 1.}
+}
 \value{
 a small shape file
 }
 \description{
 This function extracts data from a shapefile with 2 levels in file$geometry
+}
+\details{
+Converts the geometry section of a shape file to latitude-longitude format
+}
+\examples{
+dsn="data/gadm36_AUS_shp/gadm36_AUS_1.shp"
+tmp=team_11(file = dsn)
 }
 \seealso{
 purrr::map_depth, purrr::map_dfr
