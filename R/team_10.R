@@ -25,7 +25,7 @@
 #' @importFrom tidyr unnest
 #' @importFrom checkmate expect_numeric expect_string
 #' @examples
-#' gdat_path="data/gadm36_AUS_shp/gadm36_AUS_1.shp"
+#' gdat_path=system.file("extdata", "gadm36_AUS_1.shp", package = "lab3team12")
 #' tmp=team_10(gdat,0.1)
 #' library(ggplot2)
 #' library(dplyr)

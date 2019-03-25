@@ -1,7 +1,7 @@
 ---
 title: "STAT585_Lab3_Group12"
 author: "Weiquan LUO, Kellie MCCLERNON, Hao WANG"
-date: "3/24/2019"
+date: "3/24 /2019"
 output: html_document
 ---
 
@@ -55,7 +55,7 @@ The function has two input values.
 Example shape file downloaded from [gdam](https://gadm.org/download_country_v3.html).
 
 ```{r, eval=F}
-file="./data/gadm36_AUS_shp/gadm36_AUS_1.shp"
+file=system.file("extdata", "gadm36_AUS_1.shp", package = "lab3team12")
 tmp=team_5(file)
 
 # or
