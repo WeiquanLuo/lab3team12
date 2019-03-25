@@ -19,8 +19,8 @@
 #' }
 #'
 #' @import tidyverse
-#' @import dplyr
 #' @import purrr
+#' @import dplyr
 #' @importFrom sf read_sf st_as_sf st_geometry
 #' @importFrom tidyr unnest
 #' @importFrom checkmate expect_numeric expect_string assert_true
