@@ -47,7 +47,7 @@ The `team_11` function was written by Weiquan. It was created based on the solut
 
 The function has two input values.
 
-- `x`:	This is the list file (read by read_sf from package `sf`), which is originally a shape file with .shp extension. team_11 function will convert it to a dataframe 
+- `x`:	This is the list object (read by read_sf from package `sf`), which is originally a shape file with .shp extension. team_11 function will convert it to a dataframe 
 - `tolerance`: This controls how much the shape file is thinned. The default is 0.1.
 
 ## Example

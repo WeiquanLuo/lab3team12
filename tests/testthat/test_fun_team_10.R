@@ -1,12 +1,12 @@
 context("test_fun_team_10")
 
 test_that("Successfully detect the input type", {
-#  right_file="data/gadm36_AUS_shp/gadm36_AUS_1.shp"
-#  # tolerance checks
-#  expect_error(team_10(file = right_file,0))
-#  expect_error(team_10(file = right_file,"a"))
-#  expect_error(team_10(file = right_file,1))
-#
+  right_file=system.file("extdata", "gadm36_AUS_1.shp", package = "lab3team12")
+  # tolerance checks
+  expect_error(team_10(file = right_file,0))
+  expect_error(team_10(file = right_file,"a"))
+  expect_error(team_10(file = right_file,1))
+
 
   # sf file checks
   expect_error(team_10(file = 1))
@@ -20,15 +20,15 @@ test_that("Successfully detect the input type", {
   })
 
 # cant open the file, I cant figure it out.
-#test_that("correct output type", {
-#  right_file=".R/gadm36_AUS_1.shp"
-#
-#  #test for class of the output
-#  expect_equal(class(team_10(right_file))[3], "data.frame")
-#
-#  #test for expected variables
-#  expect_equal(names(team_10(right_file)), c("name", "region", "group", "long", "lat"))
-#})
+test_that("correct output type", {
+  right_file=system.file("extdata", "gadm36_AUS_1.shp", package = "lab3team12")
+
+  #test for class of the output
+  expect_equal(class(team_10(right_file))[3], "data.frame")
+
+  #test for expected variables
+  expect_equal(names(team_10(right_file)), c("name", "region", "group", "long", "lat"))
+})
 
 
 

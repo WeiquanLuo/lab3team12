@@ -23,7 +23,7 @@
 #' @import purrr
 #' @importFrom sf read_sf st_as_sf st_geometry
 #' @importFrom tidyr unnest
-#' @importFrom checkmate expect_numeric expect_string
+#' @importFrom checkmate expect_numeric expect_string assert_true
 #' @examples
 #' gdat_path=system.file("extdata", "gadm36_AUS_1.shp", package = "lab3team12")
 #' tmp=team_10(gdat,0.1)
@@ -36,6 +36,8 @@
 team_10=function(file, tolerance=0.1){
   # Check that the tolerance is a single numeric value
   checkmate::expect_numeric(tolerance)
+  checkmate::assert_true(na.ok = T,tolerance>0 & tolerance<1)
+
   # Check that the file is a .shp file
   checkmate::expect_string(file, pattern = ".shp$", info = "A file path must lead to a .shp file.")
 
