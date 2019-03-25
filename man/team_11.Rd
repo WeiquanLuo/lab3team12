@@ -4,7 +4,7 @@
 \alias{team_11}
 \title{team_11's function for 2-level list extraction}
 \usage{
-team_11(tile, tolerance)
+team_11(x, tolerance)
 }
 \arguments{
 \item{x}{the result of read_sf(".shp")}
@@ -29,6 +29,7 @@ Converts the geometry section of a shape file to latitude-longitude format
 }
 \examples{
 dsn="data/gadm36_AUS_shp/gadm36_AUS_1.shp"
+dsh=sf::read_sf(dsn)
 tmp=team_11(file = dsn)
 }
 \seealso{

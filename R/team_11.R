@@ -1,7 +1,7 @@
 #'@name team_11
 #'@title team_11's function for 2-level list extraction
 #'@description This function extracts data from a shape data with 2 levels in file$geometry
-#'@usage team_11(tile, tolerance)
+#'@usage team_11(x, tolerance)
 #'@param x the result of read_sf(".shp")
 #'@param tolerance Tolerance level for thinning shape file. A percentage between 0 and 1.
 #'@details Converts the geometry section of a shape file to latitude-longitude format
@@ -17,6 +17,7 @@
 #'@seealso team_10, team_5
 #'@examples
 #'dsn="data/gadm36_AUS_shp/gadm36_AUS_1.shp"
+#'dsh=sf::read_sf(dsn)
 #'tmp=team_11(file = dsn)
 #'@export
 #'@importFrom sf read_sf st_as_sf
