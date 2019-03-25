@@ -6,7 +6,7 @@ Author: lab3team12 from STAT 585 Spring 2019
 Maintainer: The package maintainer <weiquanl@iastate.edu>
 Description: Several functions that take a shape file (extension .shp) and convert multipolygon into
     a data frame containing latitude and longitude.
-License: CC-0
+License: MIT
 Imports: 
     purrr,
     maps,
@@ -20,6 +20,7 @@ Imports:
     checkmate,
     dplyr,
     tibble
+Depends: R (>= 2.10)
 Suggests: ggplot2
 Encoding: UTF-8
 LazyData: true
