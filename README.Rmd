@@ -1,7 +1,7 @@
 ---
 title: "STAT585_Lab3_Group12"
 author: "Weiquan LUO, Kellie MCCLERNON, Hao WANG"
-date: "3/22/2019"
+date: "3/24/2019"
 output: html_document
 ---
 
@@ -11,8 +11,61 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Here is a link to our GitHub [repository](https://github.com/WeiquanLuo/lab3team12)
 
-### Package installation
+## Package installation
 ```{r, eval=F}
 devtools::install_github("WeiquanLuo/lab3team12")
 ```
 
+## Load package
+```{r, eval=F}
+library(lab3team12)
+```
+
+## Functions
+
+### `team_5`
+
+The `team_5` function was written by Kellie. It was created based on the solution for lab2 by group 5.
+
+The function has two input values.
+
+- `file`:	This is the shape file with .shp extension that will be converted to a dataframe. It is a file path in the form of a character string (ends in .shp).
+- `tolerance`: This controls how much the shape file is thinned. The default is 0.1.
+
+### `team_10`
+
+The `team_10` function was written by Hao. It was created based on the solution for lab2 by group 10.
+
+The function has two input values.
+
+- `file`:	This is the shape file with .shp extension that will be converted to a dataframe. It is a file path in the form of a character string (ends in .shp).
+- `tolerance`: This controls how much the shape file is thinned. The default is 0.1.
+
+### `team_11`
+
+The `team_11` function was written by Weiquan. It was created based on the solution for lab2 by group 11.
+
+The function has two input values.
+
+- `x`:	This is the list file (read by read_sf from package `sf`), which is originally a shape file with .shp extension. team_11 function will convert it to a dataframe 
+- `tolerance`: This controls how much the shape file is thinned. The default is 0.1.
+
+## Example
+
+Example shape file downloaded from [gdam](https://gadm.org/download_country_v3.html).
+
+```{r, eval=F}
+file="./data/gadm36_AUS_shp/gadm36_AUS_1.shp"
+tmp=team_5(file)
+
+# or
+tmp=team_10(file)
+
+# or 
+tmp=sf::read_sf(file)
+tmp=team_11(tmp)
+  
+# plot 
+# library(ggplot2)
+# ggplot(tmp, aes(x=long,y=lat,group=group))+geom_polygen()
+```
