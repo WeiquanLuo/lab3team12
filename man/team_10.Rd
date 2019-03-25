@@ -30,7 +30,7 @@ are as follows.
 }
 \examples{
 gdat_path=system.file("extdata", "gadm36_AUS_1.shp", package = "lab3team12")
-tmp=team_10(gdat,0.1)
+tmp=team_10(gdat_path,0.1)
 library(ggplot2)
 library(dplyr)
 tmp \%>\% ggplot(aes(x=long,y=lat,group=group))+geom_polygon()
