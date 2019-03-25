@@ -7,25 +7,32 @@
 team_11(tile, tolerance)
 }
 \arguments{
-\item{file}{path of a geometry file, extension should be .shp.}
+\item{x}{the result of read_sf(".shp")}
 
 \item{tolerance}{Tolerance level for thinning shape file. A percentage between 0 and 1.}
 }
 \value{
-a small shape file
+a small shape file in latitude-longitude format
 }
 \description{
-This function extracts data from a shapefile with 2 levels in file$geometry
+This function extracts data from a shape data with 2 levels in file$geometry
 }
 \details{
 Converts the geometry section of a shape file to latitude-longitude format
+\itemize{
+\item name = subregion name depicted by the data
+\item region = coded subregion
+\item group = indicates which polygon a set of points corresponds to
+\item long = longitude of the point
+\item lat = latitude of the point
+}
 }
 \examples{
 dsn="data/gadm36_AUS_shp/gadm36_AUS_1.shp"
 tmp=team_11(file = dsn)
 }
 \seealso{
-team_11, team_5
+team_10, team_5
 }
 \author{
 Lab 2 team 11 from STAT 585 Spring 2019
