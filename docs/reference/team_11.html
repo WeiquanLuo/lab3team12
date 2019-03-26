@@ -140,8 +140,9 @@
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>dsn</span><span class='kw'>=</span><span class='st'>"data/gadm36_AUS_shp/gadm36_AUS_1.shp"</span>
-<span class='no'>dsh</span><span class='kw'>=</span><span class='kw pkg'>sf</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/sf/topics/st_read'>read_sf</a></span>(<span class='no'>dsn</span>)</div><div class='output co'>#&gt; Cannot open data source data/gadm36_AUS_shp/gadm36_AUS_1.shp</div><div class='output co'>#&gt; <span class='error'>Error in CPL_read_ogr(dsn, layer, query, as.character(options), quiet,     type, fid_column_name, promote_to_multi, int64_as_string): Open failed.</span></div><div class='input'><span class='no'>tmp</span><span class='kw'>=</span><span class='fu'>team_11</span>(<span class='kw'>file</span> <span class='kw'>=</span> <span class='no'>dsn</span>)</div><div class='output co'>#&gt; <span class='error'>Error in team_11(file = dsn): unused argument (file = dsn)</span></div></pre>
+    <pre class="examples"><div class='input'><span class='no'>dsn</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/system.file'>system.file</a></span>(<span class='st'>"extdata"</span>, <span class='st'>"gadm36_AUS_1.shp"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"lab3team12"</span>)
+<span class='no'>dsh</span><span class='kw'>=</span><span class='kw pkg'>sf</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/sf/topics/st_read'>read_sf</a></span>(<span class='no'>dsn</span>)
+<span class='no'>tmp</span><span class='kw'>=</span><span class='fu'>team_11</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>dsh</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -164,7 +165,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by The package maintainer.</p>
+  <p>Developed by Weiquan Luo.</p>
 </div>
 
 <div class="pkgdown">

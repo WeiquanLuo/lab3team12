@@ -3,10 +3,10 @@ Type: Package
 Title: Converts shape geometry to lat-long format
 Version: 0.1.0
 Author: lab3team12 from STAT 585 Spring 2019
-Maintainer: The package maintainer <weiquanl@iastate.edu>
+Maintainer: Weiquan Luo <weiquanl@iastate.edu>
 Description: Several functions that take a shape file (extension .shp) and convert multipolygon into
     a data frame containing latitude and longitude.
-License: MIT
+License: MIT + file LICENSE
 Imports: 
     purrr,
     maps,

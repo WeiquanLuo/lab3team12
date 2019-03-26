@@ -16,9 +16,9 @@
 #'@author Lab 2 team 11 from STAT 585 Spring 2019
 #'@seealso team_10, team_5
 #'@examples
-#'dsn="data/gadm36_AUS_shp/gadm36_AUS_1.shp"
+#'dsn=system.file("extdata", "gadm36_AUS_1.shp", package = "lab3team12")
 #'dsh=sf::read_sf(dsn)
-#'tmp=team_11(file = dsn)
+#'tmp=team_11(x = dsh)
 #'@export
 #'@importFrom sf read_sf st_as_sf
 #'@importFrom maptools thinnedSpatialPoly

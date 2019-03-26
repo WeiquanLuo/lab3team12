@@ -28,9 +28,9 @@ Converts the geometry section of a shape file to latitude-longitude format
 }
 }
 \examples{
-dsn="data/gadm36_AUS_shp/gadm36_AUS_1.shp"
+dsn=system.file("extdata", "gadm36_AUS_1.shp", package = "lab3team12")
 dsh=sf::read_sf(dsn)
-tmp=team_11(file = dsn)
+tmp=team_11(x = dsh)
 }
 \seealso{
 team_10, team_5
