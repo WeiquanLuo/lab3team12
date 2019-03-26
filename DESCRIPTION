@@ -2,9 +2,9 @@ Package: lab3team12
 Type: Package
 Title: Converts shape geometry to lat-long format
 Version: 0.1.0
-Author@R:
+Authors@R:
     c(
-    person(given = "Weiquan",family = "Luo",role = c("aut"),email="weiquanl@iastate.edu"),
+    person(given = "Weiquan",family = "Luo",role = c("aut","cre"),email="weiquanl@iastate.edu"),
     person(given = "Kellie",family = "McClernon",role = c("aut"),email="kelliem@iastate.edu"),
     person(given = "Hao",family = "Wang",role = c("aut"),email="halewang@iastate.edu"))
 Maintainer: Weiquan Luo <weiquanl@iastate.edu>
