@@ -26,13 +26,21 @@
 
 team_11 <- function(x, tolerance = 0.1) {
 
+  checkmate::expect_numeric(tolerance)
+  checkmate::assert_true(na.ok = T, tolerance > 0 & tolerance < 1)
+
   shp_st <- thinnedSpatialPoly(
     as(x, "Spatial"), tolerance = tolerance,
     minarea = 0.001, topologyPreserve = TRUE)
+  checkmate::check_class(shp_st,"SpatialPolygonsDataFrame")
+
   shp <- st_as_sf(shp_st)
+  checkmate::check_class(shp, c("sf", "data.frame"))
 
   map_depth(.x = shp$geometry, 2, .f = c(1)) %>% flatten %>%
     map_dfr(data.frame, .id = "group") -> df
+  checkmate::check_class(shp, "data.frame")
+
   colnames(df) <- c("group", "long", "lat")
   df$order <- seq(from = 1, to = nrow(df), by = 1)
   return(df)
