@@ -4,7 +4,7 @@
 \alias{team_5}
 \title{Team 5}
 \usage{
-team_5(file, tolerance = 0.05)
+team_5(file, tolerance = 0.1)
 }
 \arguments{
 \item{file}{Shape file path, extension .shp. Must contain a geometry column.}
@@ -16,6 +16,10 @@ a data frame with latitude-longitude and additional geography information
 }
 \description{
 Converts the geometry section of a shape file to latitude-longitude format
+}
+\examples{
+aus_file <- system.file("extdata", "gadm36_AUS_1.shp", package = "lab3team12")
+team_5(aus_file)
 }
 \author{
 Kellie McClernon
