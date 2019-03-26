@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Here is a link to our GitHub [repository](https://github.com/WeiquanLuo/lab3team12)
 
-Here is a link to our [package main page](https://haowang47.github.io/lab3team12.html)
+Here is a link to our [pkgdown website](https://WeiquanLuo.github.io/lab3team12)
 
 ## Package installation
 ```{r, eval=F}
