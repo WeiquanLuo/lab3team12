@@ -28,14 +28,17 @@ newgeo <- function(multpoly){
 #' @param tolerance Tolerance level for thinning shape file. A percentage between 0 and 1.
 #' @return a data frame with latitude-longitude and additional geography information
 #'
-#' @import assertthat
 #' @import dplyr
 #' @import purrr
+#' @importFrom assertthat assert_that has_extension has_name
 #' @importFrom maptools thinnedSpatialPoly
 #' @importFrom sf read_sf st_as_sf
 #' @importFrom tibble rownames_to_column
+#' @examples
+#' aus_file <- system.file("extdata", "gadm36_AUS_1.shp", package = "lab3team12")
+#' team_5(aus_file)
 
-team_5 <- function(file, tolerance = 0.05){
+team_5 <- function(file, tolerance = 0.1){
   assertthat::assert_that(assertthat::has_extension(file, "shp"))
   sh_orig <- sf::read_sf(as.character(file))
   shp_thin <- maptools::thinnedSpatialPoly(as(sh_orig, "Spatial"),
